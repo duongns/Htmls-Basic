@@ -30,6 +30,12 @@ img {
 body {
 	-webkit-text-size-adjust: 100%;
 }
+.fr {
+	float: right;
+}
+.fl {
+	float: left;
+}
 .truncate {
 	white-space: nowrap;
 	overflow: hidden;
@@ -56,12 +62,7 @@ body {
 
 
 @media screen and (min-width: 600px) {
-	html,
-	body,
-	.container,
-	.main {
-		height: 100vh;
-	}
+	
 }
 @media screen and (min-width: 900px) {
 
