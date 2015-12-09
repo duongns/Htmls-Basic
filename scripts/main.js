@@ -10,7 +10,7 @@ $(window).load(function() {
 });
 
 jQuery(document).ready(function($) {
-//TABS
+// Tabbed
     $('#tabbed').each(function(){
         $(this).find('.tab-title li:first').addClass('current');
         $(this).find('.tab-content').not(":first").hide();
@@ -29,13 +29,11 @@ jQuery(document).ready(function($) {
         $(this).prev('input').val('').focus();
     }));
 
-
-	$('.popup-input label').click(function () {
-		$(this).siblings('.pi-hidden').show();
-		$('body').css('overflow', 'hidden');
-	});
-	$('.pi-close').click(function () {
-		$('.pi-hidden').hide();
-		$('body').css('overflow', 'auto');
+// Back top top
+	$('a.back-to-top').click(function() {
+		$('html, body').animate({
+			scrollTop: 0
+		}, 700);
+		return false;
 	});
 });
