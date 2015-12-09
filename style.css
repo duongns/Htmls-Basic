@@ -30,6 +30,11 @@ img {
 body {
 	-webkit-text-size-adjust: 100%;
 }
+select {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
 .fr {
 	float: right;
 }
