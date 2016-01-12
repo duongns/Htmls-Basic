@@ -11,18 +11,23 @@ $(window).load(function() {
 
 jQuery(document).ready(function($) {
 // Tabbed
-    $('#tabbed').each(function(){
-        $(this).find('.tab-title li:first').addClass('current');
-        $(this).find('.tab-content').not(":first").hide();
-        $('.tab-title a').click(function(event) {
-            event.preventDefault();
-            $(this).parent().addClass("current");
-            $(this).parent().siblings().removeClass("current");
-
-            var tab = $(this).attr("href");
-            $(this).parentsUntil('#tabbed').siblings(".tab-content").hide();
-            $(tab).show();
-        });
+    $('.tabbed').each(function(){
+       $(function(){
+	  var tabtitle = $('.tab-title a'),
+	      tabcontent = $('.tab-content');
+	  
+	  tabtitle.on("click", function(event){
+	    event.preventDefault();
+	    var $this = $(this);
+	    
+	    if (!$this.hasClass("active")) {
+	      tabtitle.removeClass("active");
+	      $this.addClass("active");
+	      tabcontent.hide().filter(this.hash).show();
+	    }
+	  });
+	  tabtitle.first().click();
+	});
     });
 
     $('input.deletable').wrap('<span class="deleteicon" />').after($('<span/>').click(function() {
